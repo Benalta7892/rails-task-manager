@@ -1,0 +1,20 @@
+<div class="container-fluid p-4">
+  <div class="card border-primary my-4 border" style="max-width: 18rem;">
+    <h1 class="text-center">My tasks</h1>
+
+    <ul class="list-group list-group-flush">
+      <% @tasks.each do |task| %>
+        <li class="list-group-item">
+        <%= link_to task.title, task_path(task) %>
+        <%= link_to "Delete",
+        task_path(task),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+        </li>
+      <% end %>
+    </ul>
+
+
+<button type="button" class="btn btn-outline-primary"><%= link_to "Create Task", new_task_path %></button>
+</div>
+</div>
